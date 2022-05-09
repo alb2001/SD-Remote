@@ -1,0 +1,4 @@
+[Windowtext]
+TEXTTOP=Top Message
+TEXTMIDDLE=Middle Message
+TEXTBOTTOM=Bottom Message
