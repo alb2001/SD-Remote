@@ -4,7 +4,7 @@ A simple installable tool inspired by [UltraVNC's SingleClick](https://uvnc.com/
 
 ![Image](doc-images/image.png)
 
-This allows users or customers running the UltraVNC](https://uvnc.com/) server to connect to support agents using a reverse connection system. Useful when certain IT remote tools are not working, the user is behind a firewall blocking incoming connections, or when users are unable to provide certain basic information. This information can be found in the tool when started up as shown on the image above.
+This allows users or customers running the [UltraVNC](https://uvnc.com/) server to connect to support agents using a reverse connection system. Useful when certain IT remote tools are not working, the user is behind a firewall blocking incoming connections, or when users are unable to provide certain basic information. This information can be found in the tool when started up as shown on the image above.
 
 ## Usage cases
 This tool would be suitable for a Service Desk or a Support Team. The users or customers' computers would be running [UltraVNC](https://uvnc.com/) Server on their machines, and the support agents would be running the [UltraVNC](https://uvnc.com/) Viewer on Listen mode. The users or customers would also have the SD Remote Tool installed on their machines (check the Installation and Deploying section below).
@@ -18,17 +18,17 @@ This tool can be extremely useful when firewall restrictions apply, such as bloc
 ## Customization
 SD Remote Tool can be customized for the most part without recompiling the executable.
 
-`agents.txt`
+`agents.txt`<br>
 Support agents should be included here in a `agent,hostname` format.
 These will be shown on the tool when it is started. When an agent is selected and the "Connect" button is pressed, a connection will be initiated to the host of the support agent, prompting a question to the agent to accept, or reject the connection from the user or customer. Once the connection is accepted, the support agent will be able to control the user's computer.
 
-`icon.ico`
+`icon.ico`<br>
 The icon can be replaced by another icon that suits the organization or company. (Needs recompiling)
 
-`logo.bmp`
+`logo.bmp`<br>
 This logo goes on the top right side of the tool's window (Insert LOGO here). Can be replaced with a logo that suits the organization or company.
 
-`strings.txt`
+`strings.txt`<br>
 These are the text strings shown below the agents list. Use this to provide steps for the users to follow. Top, middle, and bottom strings.
 
 ## Encrypted connections
@@ -60,35 +60,35 @@ For silent deployments, use the `/SILENT` or `/VERYSILENT` command line paramete
 
 ## FAQ
 
-**Q. SD Remote Tool reports [UltraVNC](https://uvnc.com/) is not installed**
+**Q. SD Remote Tool reports [UltraVNC](https://uvnc.com/) is not installed**<br>
 **A.** Check that [UltraVNC](https://uvnc.com/) is installed, the following registry keys are checked:
 * If OS is 64 bit: `HKLM64\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Ultravnc2_is1\InstallLocation`
 * If OS is 32 bit: `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Ultravnc2_is1\InstallLocation`
 
-**Q. Why is the .exe file so large?**
+**Q. Why is the .exe file so large?**<br>
 **A.** [AutoIt](https://www.autoitscript.com/site/) v3 executables include all libraries and necessary runtimes inside the .exe file so the executable size becomes larger. As a benefit, it can run on any Windows machine out of the box.
 
-**Q. The executable file triggers an alert on my Antivirus software**
+**Q. The executable file triggers an alert on my Antivirus software**<br>
 **A.** [AutoIt](https://www.autoitscript.com/site/) is a great and powerful scripting language that has been running around for years. Unfortunately, malware has been written using this scripting language and some Antivirus software might trigger alerts. Please read [AutoIt and Malware](https://www.autoitscript.com/wiki/AutoIt_and_Malware) for more information.
 
-**Q. Will this work with other remote software?**
+**Q. Will this work with other remote software?**<br>
 **A.** This software is provided as is; it has been developed a long time ago to cover specific needs for a project I worked with in the past. However, by editing the source code you should be able to modify it and make it work with the remote administration tools you might be using.
 
-**Q. When compiling the executable using the source, the icon doesn't show up and the file name doesn't match**
+**Q. When compiling the executable using the source, the icon doesn't show up and the file name doesn't match**<br>
 **A.** Most likely the compiler is not reading the [compiler directives](https://www.autoitscript.com/autoit3/scite/docs/SciTE4AutoIt3/directives-available.html) of the [AutoIt3Wrapper](https://www.autoitscript.com/autoit3/scite/docs/SciTE4AutoIt3/AutoIt3Wrapper.html) properly.
 Besides installing [AutoIt](https://www.autoitscript.com/site/) v3, you will also need to install [SciTE v3 editor](https://www.autoitscript.com/site/autoit-script-editor/downloads/).
 I don't know if there is another method to do this without installing the editor, but this is what I have done myself. Please check the Source code section above on this Readme.
 
-**Q. Does [UltraVNC](https://uvnc.com/) support encrypted connections?**
+**Q. Does [UltraVNC](https://uvnc.com/) support encrypted connections?**<br>
 **A.** Yes, so do [TightVNC](https://www.tightvnc.com/) and [TigerVNC](https://tigervnc.org/). This is highly recommended on unsecure environments. Please check this [encryption guide](https://uvnc.com/docs/documentation-1-3-0/133-howto-add-encryption.html).
 
-**Q. Is this customizable?**
+**Q. Is this customizable?**<br>
 **A.** Yes, everything except the icon. You can customize the logo, the agents list, and the text strings displayed. See the Customization section above.
 
-**Q. What is a reverse connection, and what benefits does it provide?**
+**Q. What is a reverse connection, and what benefits does it provide?**<br>
 **A.** A reverse connection is usually used to bypass firewall restrictions on open ports. A firewall usually blocks incoming traffic, but does not block outgoing traffic. This will allow to perform a connection to a machine that might be behind a firewall blocking incoming connections.
 
-**Q. What is the [UltraVNC](https://uvnc.com/) listen mode?**
+**Q. What is the [UltraVNC](https://uvnc.com/) listen mode?**<br>
 **A.** It is a mode where the [UltraVNC](https://uvnc.com/) viewer (client) is set to listen for incoming connections from a [UltraVNC](https://uvnc.com/) server performing a reverse connection. [TightVNC](https://www.tightvnc.com/) and [TigerVNC](https://tigervnc.org/) support it as well.
 
 ## Links
