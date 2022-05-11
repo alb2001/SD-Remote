@@ -11,28 +11,28 @@ This tool would be suitable for a Service Desk or a Support Team. The users or c
 
 Once a user calls the Service Desk or Support Team for help, if the support agent cannot initialize a connection to the user's computer, then the user could open the SD Remote tool, and select the agent from the list. By doing this, a reverse connection would be initiated from the [UltraVNC](https://uvnc.com/) server running on the user's computer, to the [UltraVNC](https://uvnc.com/) Viewer on the support agent's computer running on Listen Mode. After this is done, a prompt will show up on the support agent's computer asking whether to accept or reject the connection.
 
-Also, if needed, the tool also displays some information such as the hostname, username, operative system and IP addresses which may be valuable for the support agent.
+The tool also displays some information such as the hostname, username, operative system and IP addresses which may be valuable for the support agent.
 
 This tool can be extremely useful when firewall restrictions apply, such as blocking incoming traffic. Since most firewalls are setup to block incoming traffic, but not outgoing traffic, a reverse connection will help indeed.
 
 ## Customization
 SD Remote Tool can be customized for the most part without recompiling the executable.
 
-`agents.txt`<br>
+[`agents.txt`](agents.txt)<br>
 Support agents should be included here in a `agent,hostname` format.
 These will be shown on the tool when it is started. When an agent is selected and the "Connect" button is pressed, a connection will be initiated to the host of the support agent, prompting a question to the agent to accept, or reject the connection from the user or customer. Once the connection is accepted, the support agent will be able to control the user's computer.
 
-`icon.ico`<br>
+[`icon.ico`](icon.ico)<br>
 The icon can be replaced by another icon that suits the organization or company. (Needs recompiling)
 
-`logo.bmp`<br>
-This logo goes on the top right side of the tool's window (Insert LOGO here). Can be replaced with a logo that suits the organization or company.
+[`logo.bmp`](logo.bmp)<br>
+This logo goes on the top right side of the tool's window (Insert LOGO here). Can be replaced with a logo that suits the organization or company. Size is 174x60
 
-`strings.txt`<br>
+[`strings.txt`](strings.txt)<br>
 These are the text strings shown below the agents list. Use this to provide steps for the users to follow. Top, middle, and bottom strings.
 
 ## Encrypted connections
-[UltraVNC](https://uvnc.com/) supports encrypted connections, a must if these connections are going to be done over an unsecure environment. Please check this [encryption guide](https://uvnc.com/docs/documentation-1-3-0/133-howto-add-encryption.html).
+[UltraVNC](https://uvnc.com/) supports encrypted connections. This is a must if these connections are going to be done over an unsecure environment. Please check this [encryption guide](https://uvnc.com/docs/documentation-1-3-0/133-howto-add-encryption.html).
 
 ## Source code
 This tool is quite old, not maintained anymore and it is provided as-is. It was written for a customer I worked with. Written in [AutoIt v3](https://www.autoitscript.com/site/) and its source contains [compiler directives](https://www.autoitscript.com/autoit3/scite/docs/SciTE4AutoIt3/directives-available.html) of the [AutoIt3Wrapper](https://www.autoitscript.com/autoit3/scite/docs/SciTE4AutoIt3/AutoIt3Wrapper.html) as follows:
@@ -44,14 +44,16 @@ This tool is quite old, not maintained anymore and it is provided as-is. It was 
 
 You might need to install the full [SciTE v3 editor](https://www.autoitscript.com/site/autoit-script-editor/downloads/) to be able to read these directives when compiling by default.
 
+You will find the source [`Helpdesktool.au3`](src/Helpdesktool.au3) inside the `src` folder.
+
 ## False positives
-[AutoIt](https://www.autoitscript.com/site/) is a great and powerful scripting language that has been running around for years. Unfortunately, malware has been written using this scripting language and some Antivirus software might trigger alerts. An official wiki article can be found [here](https://www.autoitscript.com/wiki/AutoIt_and_Malware)
+[AutoIt](https://www.autoitscript.com/site/) is a great and powerful scripting language that has been running around for years. Unfortunately, malware has been written using this scripting language and some Antivirus software might trigger alerts. Please read [AutoIt and Malware](https://www.autoitscript.com/wiki/AutoIt_and_Malware) for more information.
 
 ## Using another remote administration tool
 This tool acts as a frontend for [UltraVNC's viewer listen mode](https://uvnc.com/docs/uvnc-viewer/52-ultravnc-viewer-commandline-parameters.html) using the reverse connection capability where the viewer will accept incoming connections from a [UltraVNC](https://uvnc.com/) server. However, it can be altered to support any other remote administration tool that supports reverse connections as well, such as other VNC protocol based tools such as [TightVNC](https://www.tightvnc.com/), [TigerVNC](https://tigervnc.org/), and others. You will need to edit the source code to your needs, though.
 
 ## Installation and Deploying
-An installer script written in [InnoSetup](https://jrsoftware.org/isinfo.php) is included inside the `installer` folder. Use this to build your installer so you can deploy it on your users or customer's computers. Also, a compiled installer is also provided for testing.
+An installer script [`hdremotetool.iss`](installer/hdremotetool.iss) written in [InnoSetup](https://jrsoftware.org/isinfo.php) is included inside the `installer` folder. Use this to build your installer so you can deploy it on your users or customer's computers. Also, a compiled installer is provided for testing.
 
 By default, this install script does not ask for a folder to install the software, and it adds the Start Menu and Desktop icon shortcuts.
 
